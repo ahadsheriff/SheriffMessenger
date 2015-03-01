@@ -1,3 +1,130 @@
+<template name="layout">
+  <head>
+    <title>Simple chat</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  </head>
+
+    <!-- Wrap all page content here -->
+    {{> yield}}
+
+</template>
+
+<template name="channel">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          {{> presentation}}
+        </div>
+        <div class="col-md-6">
+          {{> chat}}        
+        </div>
+        <div class="col-md-3">
+          {{> participants}}
+        </div>
+      </div>
+    </div>
+</template>
+
+<template name="homepage">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="header">
+          <a href="/"><h1>Sheriff Messenger</h1></a>
+
+          <h2>Chat. Like a Sheriff.</h2>
+        </div>
+        <div class="landing">
+          <form class="form-inline" role="form">
+          <div class="form-group">
+            <input type="text" class="form-control" id="channelInput" placeholder="agoodname" maxlength="20" />
+            <button type="button" id="channelButton" class="btn btn-default">Go !</button>
+          </div>
+        </form>
+        <div class="channels">
+          <ul class="pager">
+            {{#each channels}}
+              <li><a href="/c/{{ name }}">{{ name }} - {{ participants.length }} <span class="glyphicon glyphicon-user"></span></a></li>
+            {{/each}}
+          </ul>
+
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</template>
+
+
+<template name="presentation">
+  <a href="/"><h1>SimpleChat</h1></a>
+  <dl>
+    <dt>Description</dt>
+    <dd>A chat, easy to use, without any login or plug-in.</dd>
+    <dt>A problem or a suggestion ?</dt>
+    <dd>It's just a prototype, help is welcome !</dd>
+    <dd><a href="https://github.com/BenderV/simplechat">Github repository</a></dd>
+    
+
+  </dl>
+  <i>version : 0.0.1</i><br/>
+  <i>made with meteor 0.8.2</i>
+</template>
+
+<template name="participants">
+  <h3>Participants</h3>
+  <ul>
+    {{#each participants}}
+      <li style="list-style-type: none;"><div class="color-swatch" style="background-color:{{labelClass}};"></div> {{ profile.name }}</li>
+    {{/each}}
+  </ul>
+  <p>You can edit your name : </p>
+  <input type="text" class="form-control" id="nameInput" placeholder="{{name}}" maxlength="40" />
+
+</template>
+
+<template name="chat">
+  <div class="chat">
+    <div class="conversation commentArea" id="scroll">
+      {{#each messages }}
+        {{#if message}}
+          <div class="{{authorCss author}}">
+            {{breaklines message }}<br/>
+            <i class="author">{{ name }}</i>
+          </div>
+        {{else}}
+          <div class="bubbledLeft">
+            Hi ! Share the url with your friend<br/>
+            <i class="author">SimpleChat</i>
+          </div>
+        {{/if}}
+        <script> if (typeof(scrolldown) == "function") { scrolldown(); }</script>
+      {{/each}}
+    </div>
+    <div class="conversationInput"> 
+      <input type="text" id="messageInput" class="form-control text" placeholder="Message..." maxlength="300">
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    /* Call it everytime ? ....
+    around 10 times at the first call...
+     */
+    var scrolldown = function() {
+      console.log("one scrolldown call..."); // reminder to debug...
+      var elem = document.getElementById('scroll');
+      elem.scrollTop = elem.scrollHeight;
+    }
+  </script>
+
+</template>
+
+<!--
+
 <head>
   <title>Sheriff Messenger</title>
 </head>
@@ -33,3 +160,5 @@
 		<small>{{username}}</small>
 	</blockquote>
 </template>
+
+-->

@@ -7,3 +7,16 @@
 meteor-platform
 autopublish
 insecure
+mrt:moment
+ostrio:user-status
+accounts-base
+accounts-password
+artwells:accounts-guest
+mizzao:accounts-testing
+fortawesome:fontawesome
+iron:router
+twbs:bootstrap
+meteorhacks:fast-render
+mjnovice:jquery-titlealert
+peerlibrary:related
+standard-app-packages

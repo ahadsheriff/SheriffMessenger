@@ -1,1 +1,125 @@
 /* CSS declarations go here */
+@media (min-width: 1200px) {
+    [class*="span"] {
+        margin-left: 20px; /* correction ??? */
+    }
+}
+body {
+    background-color: #e7e7e7;
+}
+.chat {
+    height: 100vh; /* What is that ? */
+    background-color: #fff;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.61);
+    -moz-box-shadow:    0px 3px 5px 0px rgba(0, 0, 0, 0.61);
+    box-shadow:         0px 3px 5px 0px rgba(0, 0, 0, 0.61);
+}
+.conversation {
+    height: calc(100% - 50px); /* Use preprocessing to get a fixed .conversationInput-height */
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+.conversationInput {
+    background-color: #ccf;
+    height: 50px;
+    bottom: 0;
+}
+
+
+/* CSS chat 'stolen' from  http://jsfiddle.net/anuradhabajpai/x8C8S/10/ */
+
+.commentArea {
+    font: 14px Arial;
+    padding: 0 10px 0px;
+}
+
+.bubbledLeft,.bubbledRight {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 9px;
+    max-width: 80%;
+    clear: both;
+    position: relative;
+}
+
+.bubbledLeft{
+    float: left;
+    margin-right: auto;
+    -webkit-border-radius: 8px 8px 8px 0px;
+    -moz-border-radius: 8px 8px 8px 0px;
+    -o-border-radius: 8px 8px 8px 0px;
+    -ms-border-radius: 8px 8px 8px 0px;
+    border-radius: 8px 8px 8px 0px;
+    background-color: #65B045;
+    color: #ffffff;
+}
+
+.bubbledLeft:before {
+    border-bottom: 10px solid #65B045;
+    border-left: 9px solid rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    content: "";
+}
+
+.bubbledRight{
+    float: right;
+    margin-left: auto;
+    text-align: right;
+    -webkit-border-radius: 8px 8px 0px 8px;
+    -moz-border-radius: 8px 8px 0px 8px;
+    -o-border-radius: 8px 8px 0px 8px;
+    -ms-border-radius: 8px 8px 0px 8px;
+    border-radius: 8px 8px 0px 8px;
+    background-color: #07D;
+    color: white;
+}
+
+.bubbledRight:before {
+    border-bottom: 9px solid #07D;
+    border-right: 9px solid rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    right: -8px;
+    content: "";
+}
+
+.author {
+    opacity: .5;
+    font-size: .9em;
+}
+/* END CSS Chat */
+#messageInput {
+    width: 100%;
+    padding: 0px;
+    padding-left: 16px;
+    height: 100%;
+    border-bottom: 0;
+    border-radius: 0;
+}
+
+.color-swatch {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.landing {
+    padding-top: 150px;
+    text-align: center;
+}
+.channels {
+    padding: 10px 10px 10px 10px;
+}
+h1 {
+    text-decoration: none;
+    text-decoration-color: none;
+    color: #333;
+}
+.header h1 {
+    text-align: center;
+} 
